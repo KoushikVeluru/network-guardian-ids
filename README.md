@@ -184,6 +184,7 @@ network-guardian-ids/
 ---
 ## Live demo
 source .venv/bin/activate
+
 python -m streamlit run demo_app.py
 
 ## Environment
