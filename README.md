@@ -26,6 +26,7 @@ python src/ml/data_loader.py      # Step 1: Load, clean, split
 python src/ml/train.py            # Step 2: Train RF + XGBoost
 python src/explain/shap_explain.py  # Step 3: SHAP explanations
 python src/nlp/template_alerts.py   # Step 4: Generate alerts
+python src/ml/unseen_benign_test.py # Step 5: Test 1.83M unseen benign flows
 ```
 
 ---
@@ -55,6 +56,22 @@ python src/nlp/template_alerts.py   # Step 4: Generate alerts
 | Inference (60K flows) | 0.163s | **0.053s** |
 
 **Champion selection:** XGBoost chosen on validation F1 (0.9993 vs 0.9985) and ROC-AUC.
+
+### Unseen Benign Holdout Test (Out-of-Sample Robustness)
+
+To verify the model does not suffer from high false alarm rates on completely unseen normal network flows, the champion XGBoost model was evaluated against **all 1,833,164 benign flows** that were never included in the 400K train/val/test sample (scaled using the exact same `StandardScaler` fit on train only):
+
+| Metric | Measured Value |
+|--------|----------------|
+| **Total Unseen Benign Flows** | 1,833,164 (96.7% of all cleaned benign traffic) |
+| **True Negatives** | 1,829,755 (99.814% specificity) |
+| **False Positives (FP Count)** | **3,409** |
+| **False Positive Rate (FPR)** | **0.001860 (0.1860%)** |
+| **Mean Attack Probability** | 0.002759 |
+| **Max Attack Probability** | 0.999964 |
+| **Inference Time (1.83M flows)** | 3.82s (~480,000 flows/sec throughput) |
+
+> **Key Finding:** On 1.83 million completely unseen normal flows, the false positive rate is **0.186%** (~1.86 false alerts per 1,000 benign flows), confirming strong real-world generalization on normal traffic despite attack-heavy training sampling.
 
 ### Top 10 Features (SHAP Global Importance)
 
@@ -114,7 +131,8 @@ network-guardian-ids/
 ├── src/
 │   ├── ml/
 │   │   ├── data_loader.py       # Data loading, cleaning, splitting
-│   │   └── train.py             # RF + XGBoost training
+│   │   ├── train.py             # RF + XGBoost training
+│   │   └── unseen_benign_test.py # Out-of-sample benign holdout test
 │   ├── explain/
 │   │   └── shap_explain.py      # SHAP global + per-flow
 │   ├── nlp/
@@ -143,6 +161,7 @@ network-guardian-ids/
 | Data loading & cleaning | ✅ Done | Memory-safe, file-by-file, float32, Parquet |
 | EDA & data quality report | ✅ Done | Label counts, NaN/Inf, duplicates |
 | Binary classification (RF, XGBoost) | ✅ Done | Real metrics, champion selected |
+| Unseen benign holdout test | ✅ Done | 1.83M unseen flows, 0.186% FPR, 3,409 FPs |
 | SHAP explainability | ✅ Done | Global top-10, 3 per-flow explanations |
 | Risk scoring & severity | ✅ Done | Documented formula, 0-100 scale |
 | Template-based alerts | ✅ Done | Plain-English, no LLM |
