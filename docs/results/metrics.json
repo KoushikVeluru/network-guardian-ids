@@ -1,0 +1,94 @@
+{
+  "seed": 42,
+  "feature_count": 77,
+  "train_size": 279999,
+  "val_size": 60001,
+  "test_size": 60000,
+  "champion": "XGBoost",
+  "models": {
+    "random_forest": {
+      "validation": {
+        "dataset": "Validation",
+        "accuracy": 0.9975167080548657,
+        "precision": 0.999444245960859,
+        "recall": 0.9976027736503219,
+        "f1": 0.9985226607969699,
+        "roc_auc": 0.9998873290346787,
+        "pr_auc": 0.9999659815656958,
+        "false_positive_rate": 0.002939323955490237,
+        "false_negative_rate": 0.0023972263496780583,
+        "confusion_matrix": {
+          "tn": 9498,
+          "fp": 28,
+          "fn": 121,
+          "tp": 50354
+        },
+        "inference_time_seconds": 0.1651134490966797,
+        "samples": 60001,
+        "train_time_seconds": 22.905193090438843
+      },
+      "test": {
+        "dataset": "Test",
+        "accuracy": 0.9976166666666667,
+        "precision": 0.9995831099994045,
+        "recall": 0.9975829139755121,
+        "f1": 0.9985820103721479,
+        "roc_auc": 0.9998884270169393,
+        "pr_auc": 0.9999657431988233,
+        "false_positive_rate": 0.002204492966617678,
+        "false_negative_rate": 0.002417086024487855,
+        "confusion_matrix": {
+          "tn": 9505,
+          "fp": 21,
+          "fn": 122,
+          "tp": 50352
+        },
+        "inference_time_seconds": 0.1630258560180664,
+        "samples": 60000
+      },
+      "train_time_seconds": 22.905193090438843
+    },
+    "xgboost": {
+      "validation": {
+        "dataset": "Validation",
+        "accuracy": 0.9988166863885601,
+        "precision": 0.9995441030723489,
+        "recall": 0.9990490341753343,
+        "f1": 0.9992965073074065,
+        "roc_auc": 0.999976444645072,
+        "pr_auc": 0.999995561972727,
+        "false_positive_rate": 0.0024144446777241233,
+        "false_negative_rate": 0.000950965824665676,
+        "confusion_matrix": {
+          "tn": 9503,
+          "fp": 23,
+          "fn": 48,
+          "tp": 50427
+        },
+        "inference_time_seconds": 0.0578157901763916,
+        "samples": 60001,
+        "train_time_seconds": 5.499889612197876
+      },
+      "test": {
+        "dataset": "Test",
+        "accuracy": 0.9989833333333333,
+        "precision": 0.9997620794258183,
+        "recall": 0.9990292031540992,
+        "f1": 0.9993955069318509,
+        "roc_auc": 0.9999853093284522,
+        "pr_auc": 0.9999972127609035,
+        "false_positive_rate": 0.0012597102666386732,
+        "false_negative_rate": 0.0009707968459008599,
+        "confusion_matrix": {
+          "tn": 9514,
+          "fp": 12,
+          "fn": 49,
+          "tp": 50425
+        },
+        "inference_time_seconds": 0.05264616012573242,
+        "samples": 60000
+      },
+      "train_time_seconds": 5.499889612197876
+    }
+  }
+}

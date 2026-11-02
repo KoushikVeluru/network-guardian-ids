@@ -1,0 +1,125 @@
+[
+  {
+    "flow_index": 45797,
+    "true_label": "BENIGN",
+    "predicted_label": "BENIGN",
+    "confidence": 0.01692776381969452,
+    "risk_score": 1.0,
+    "severity": "LOW",
+    "alert_text": "\u2705 BENIGN TRAFFIC (Confidence: 98.3%)\nRisk Score: 1.0/100 (LOW)\n\nThis network flow appears to be normal traffic. No malicious indicators detected.",
+    "shap_features": [
+      {
+        "feature": "Init_Win_bytes_backward",
+        "value": -1.0,
+        "shap_value": -1.3810728788375854,
+        "direction": "benign"
+      },
+      {
+        "feature": "Init_Win_bytes_forward",
+        "value": 242.0,
+        "shap_value": -0.9435316324234009,
+        "direction": "benign"
+      },
+      {
+        "feature": "Fwd Packet Length Max",
+        "value": 0.0,
+        "shap_value": 0.7993741631507874,
+        "direction": "attack"
+      },
+      {
+        "feature": "URG Flag Count",
+        "value": 0.0,
+        "shap_value": -0.7853813171386719,
+        "direction": "benign"
+      },
+      {
+        "feature": "Bwd Packet Length Std",
+        "value": 0.0,
+        "shap_value": -0.7429002523422241,
+        "direction": "benign"
+      }
+    ]
+  },
+  {
+    "flow_index": 42626,
+    "true_label": "ATTACK",
+    "predicted_label": "ATTACK",
+    "confidence": 0.9999942779541016,
+    "risk_score": 60.0,
+    "severity": "HIGH",
+    "alert_text": "\ud83d\udea8 SECURITY ALERT \u2014 HIGH SEVERITY\n\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n\nDetection: MALICIOUS TRAFFIC DETECTED\nConfidence: 100.0%\nRisk Score: 60.0/100\nSeverity: HIGH\n\nSummary:\n  Network Guardian's XGBoost model detected potentially\n  malicious activity in this network flow with 100.0%\n  confidence. The risk score of 60.0/100 classifies\n  this as HIGH severity.\n\nKey Indicators (from SHAP analysis):\n  \u2022 Bwd Packet Length Std: 4128 (increased attack likelihood, SHAP: +7.0638)\n  \u2022 Bwd Packet Length Mean: 2900 (increased attack likelihood, SHAP: +1.2480)\n  \u2022 Init_Win_bytes_backward: 229 (increased attack likelihood, SHAP: +1.2114)\n  \u2022 Fwd IAT Min: 384 (increased attack likelihood, SHAP: +0.5620)\n  \u2022 Fwd Packet Length Max: 20 (increased attack likelihood, SHAP: +0.5030)\n\nRecommended Actions:\n  1. Review the source and destination of this flow.\n  2. Check for other alerts from the same source IP.\n  3. If confirmed malicious, block the source at the firewall.\n  4. Document the incident for forensic analysis.\n\nNote: This alert was generated using template-based\nexplanation. The detection was made by the ML model;\nthe explanation is based on real SHAP feature attributions.\nNo LLM was used in generating this alert.\n",
+    "shap_features": [
+      {
+        "feature": "Bwd Packet Length Std",
+        "value": 4128.3193359375,
+        "shap_value": 7.063755512237549,
+        "direction": "attack"
+      },
+      {
+        "feature": "Bwd Packet Length Mean",
+        "value": 2900.25,
+        "shap_value": 1.2479643821716309,
+        "direction": "attack"
+      },
+      {
+        "feature": "Init_Win_bytes_backward",
+        "value": 229.0,
+        "shap_value": 1.2114096879959106,
+        "direction": "attack"
+      },
+      {
+        "feature": "Fwd IAT Min",
+        "value": 384.0,
+        "shap_value": 0.5620156526565552,
+        "direction": "attack"
+      },
+      {
+        "feature": "Fwd Packet Length Max",
+        "value": 20.0,
+        "shap_value": 0.5029963254928589,
+        "direction": "attack"
+      }
+    ]
+  },
+  {
+    "flow_index": 15431,
+    "true_label": "ATTACK",
+    "predicted_label": "ATTACK",
+    "confidence": 0.9999316930770874,
+    "risk_score": 60.0,
+    "severity": "HIGH",
+    "alert_text": "\ud83d\udea8 SECURITY ALERT \u2014 HIGH SEVERITY\n\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n\nDetection: MALICIOUS TRAFFIC DETECTED\nConfidence: 100.0%\nRisk Score: 60.0/100\nSeverity: HIGH\n\nSummary:\n  Network Guardian's XGBoost model detected potentially\n  malicious activity in this network flow with 100.0%\n  confidence. The risk score of 60.0/100 classifies\n  this as HIGH severity.\n\nKey Indicators (from SHAP analysis):\n  \u2022 Average Packet Size: 7.5 (increased attack likelihood, SHAP: +2.2114)\n  \u2022 Total Fwd Packets: 4 (increased attack likelihood, SHAP: +1.5434)\n  \u2022 Fwd Packet Length Max: 6 (increased attack likelihood, SHAP: +1.4501)\n  \u2022 Init_Win_bytes_forward: 256 (increased attack likelihood, SHAP: +1.2403)\n  \u2022 Init_Win_bytes_backward: -1 (decreased attack likelihood, SHAP: -1.2139)\n\nRecommended Actions:\n  1. Review the source and destination of this flow.\n  2. Check for other alerts from the same source IP.\n  3. If confirmed malicious, block the source at the firewall.\n  4. Document the incident for forensic analysis.\n\nNote: This alert was generated using template-based\nexplanation. The detection was made by the ML model;\nthe explanation is based on real SHAP feature attributions.\nNo LLM was used in generating this alert.\n",
+    "shap_features": [
+      {
+        "feature": "Average Packet Size",
+        "value": 7.5,
+        "shap_value": 2.211380958557129,
+        "direction": "attack"
+      },
+      {
+        "feature": "Total Fwd Packets",
+        "value": 4.0,
+        "shap_value": 1.543444275856018,
+        "direction": "attack"
+      },
+      {
+        "feature": "Fwd Packet Length Max",
+        "value": 6.0,
+        "shap_value": 1.4500538110733032,
+        "direction": "attack"
+      },
+      {
+        "feature": "Init_Win_bytes_forward",
+        "value": 256.0,
+        "shap_value": 1.2403138875961304,
+        "direction": "attack"
+      },
+      {
+        "feature": "Init_Win_bytes_backward",
+        "value": -1.0,
+        "shap_value": -1.2139235734939575,
+        "direction": "benign"
+      }
+    ]
+  }
+]

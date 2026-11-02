@@ -1,0 +1,52 @@
+[
+  {
+    "rank": 1,
+    "feature": "Bwd Packet Length Std",
+    "mean_abs_shap": 4.613124370574951
+  },
+  {
+    "rank": 2,
+    "feature": "Init_Win_bytes_backward",
+    "mean_abs_shap": 2.1261796951293945
+  },
+  {
+    "rank": 3,
+    "feature": "Bwd Packet Length Mean",
+    "mean_abs_shap": 0.8138875365257263
+  },
+  {
+    "rank": 4,
+    "feature": "Fwd Packet Length Max",
+    "mean_abs_shap": 0.7963923215866089
+  },
+  {
+    "rank": 5,
+    "feature": "Init_Win_bytes_forward",
+    "mean_abs_shap": 0.7942823767662048
+  },
+  {
+    "rank": 6,
+    "feature": "Average Packet Size",
+    "mean_abs_shap": 0.5776865482330322
+  },
+  {
+    "rank": 7,
+    "feature": "Idle Min",
+    "mean_abs_shap": 0.4197641909122467
+  },
+  {
+    "rank": 8,
+    "feature": "Total Fwd Packets",
+    "mean_abs_shap": 0.2928309738636017
+  },
+  {
+    "rank": 9,
+    "feature": "Fwd Header Length",
+    "mean_abs_shap": 0.24546988308429718
+  },
+  {
+    "rank": 10,
+    "feature": "Total Length of Fwd Packets",
+    "mean_abs_shap": 0.23665784299373627
+  }
+]
