@@ -177,7 +177,9 @@ network-guardian-ids/
 
 ## Team
 
-3 B.Tech students. See `docs/MASTER_PROMPT.md` for full roles and specification.
+KoushiK Veluru
+D Sri Charan Teja
+Rahul.U
 
 ## License
 
